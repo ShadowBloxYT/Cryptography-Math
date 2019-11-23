@@ -6,4 +6,4 @@
 
 Want the programs? Go to the wiki:
 
-[Wiki](https://github.com/MyronLai/Cryptography-Math/wiki/)
+> [Click Here To Go To The Wiki!](https://github.com/MyronLai/Cryptography-Math/wiki/)
