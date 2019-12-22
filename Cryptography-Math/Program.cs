@@ -91,15 +91,13 @@ namespace Cryptography_Math
             Console.WriteLine("DONE");
         }
 
-        public static void isPrime()
+        public static bool isPrime(int num)
         {
             List<BigInteger> factors = new List<BigInteger>();
 
-            Console.WriteLine("enter a number");
-            BigInteger respond = BigInteger.Parse(Console.ReadLine());
-            for (BigInteger i = 1; i < respond + 1; i++)
+            for (BigInteger i = 1; i < num + 1; i++)
             {
-                if (respond % i == 0)
+                if (num % i == 0)
                 {
                     factors.Add(i);
                 }
@@ -107,12 +105,12 @@ namespace Cryptography_Math
 
             if (factors.Count == 2)
             {
-                Console.WriteLine("True");
+                return true;
             }
 
             else
             {
-                Console.WriteLine("False");
+                return false;
             }
 
             Console.WriteLine("DONE");
@@ -203,44 +201,56 @@ namespace Cryptography_Math
             return num * Factorial(num -1);
         }
 
+        public static void Switch(ref char first, ref char second)
+        {
+            var temp = first;
+            first = second;
+            second = temp;
+        }
+
+        public static string swap(string a, int one, int two)
+        {
+            char temp;
+            char[] array = a.ToCharArray();
+            temp = array[one];
+            array[one] = array[two];
+            array[two] = temp;
+
+            string b = new string(array);
+            return b;
+        }
+
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a string");
-            string input = Console.ReadLine();
+            //Random random = new Random();
 
-            int length = input.Length;
+            //Console.WriteLine("Enter");
+            //string input = Console.ReadLine();
 
-            char[] letters = new char[length];
+            
 
-            for (int i = 0; i < length; i++)
+            for (BigInteger i = 2; i < 2; i++)
             {
-                letters[i] = input[i];
-            }
-
-            for (int i = 0; i < length; i++)
-            {
-                char extra = letters[i];
-                if (i >= letters.Length)
+                if (isPrime((int)Math.Pow(2, (int)i) - 1))
                 {
-                    char extra2 = letters[0];
-                    letters[0] = letters[i];
-                    letters[i] = extra2;
+                    Console.WriteLine($"Num: {Math.Pow(2, (int)i) - 1}");
                 }
-                else
-                {
-                    letters[i] = letters[i + 1];
-                    letters[i + 1] = extra;
-                }
+
+                
             }
 
 
-            for (int i = 0; i < length; i++)
-            {
-                Console.WriteLine($"{i}: {letters[i]}");
-            }
+            //for (int i = 0; i < Factorial(input.Length); i++)
+            //{
+            //    random.Next(0, 322);
 
-            Console.WriteLine(Factorial(length));
+               
+            //}
+
+            // create a function that takes a string and two indeices and swaps the characters at those indices and returns the new string
+
+            
 
             Console.ReadKey();
         }
